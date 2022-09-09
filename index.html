@@ -39,29 +39,36 @@
       <form action="" method="GET" class="hidden">
 
         <select data-conv-question="Olá! tudo bem, como eu posso te ajudar ?" name="category">
-          <option value="MotoTaxi">MotoTaxi ?</option>
-          <option value="MotoBoy">MotoBoy ?</option>
+          <option value="MotoTaxi">Mototaxistas ?</option>
+          <option value="MotoBoy">MotoBoys ?</option>
+          <option value="Sac">SAC ?</option>
         </select>
 
         <div data-conv-fork="category">
           <div data-conv-case="MotoTaxi">
-            <input type="text" name="domainName" data-conv-question="Estamos em manutenção, desculpe o transtorno">
+            <input type="text" name="domainName" data-conv-question="Digite OK para solicitarmos seu número do Whatsapp e enviarmos o contato do nosso mototaxista mais próximo de você!">
           </div>
           <div data-conv-case="MotoBoy" data-conv-fork="first-question2">
-            <input type="text" name="companyName" data-conv-question="Estamos em manutenção, desculpe o transtorno">
+            <input type="text" name="companyName" data-conv-question="Digite OK para solicitarmos seu número do Whatsapp e enviarmos o contato do nosso motoboy mais próximo de você!">
           </div>
+          <!-- <div data-conv-case="Sac" data-conv-fork="second-question2">
+            <input type="text" name="assistent" data-conv-question="0800 404 808 SAC 24h">
+          </div> -->
         </div>
 
-        <input type="text" name="name" data-conv-question="Por Favor, Digite Seu Nome">
+        <input type="text" name="name" data-conv-question="Por favor, digite seu número do Whatsapp!">
 
-        <input type="text" data-conv-question="Olá {name}, <br> É um prazer conhecê-lo." data-no-answer="true">
+        <!-- <input type="text" data-conv-question="Já enviamos o contato de um de nossos piloto para o Whatsapp de número {name}, <br> É um prazer poder te acompanhar ao seu destino!." data-no-answer="true"> -->
 
-        <input data-conv-question="Digite Seu Email"
+        <input type="text" data-conv-question="Enviaremos o contato do nosso piloto mais próximo do número {name}, <br> É um prazer acompanha-ló(a) ao seu destino." data-no-answer="true">
+
+        <!-- <input data-conv-question="Digite Seu Email"
           data-pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-          type="email" name="email" required placeholder="Qual seu email?">
+          type="email" name="email" required placeholder="Qual seu email?"> -->
 
-        <select data-conv-question="Por Favor Confirme">
-          <option value="Sim">Confirmo</option>
+        <select data-conv-question="Por favor confirme se seu número está correto?">
+          <option value="Sim">Confirmar</option>
+          <option value="Nao">Cancelar</option>
         </select>
 
       </form>
