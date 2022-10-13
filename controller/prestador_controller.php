@@ -2,6 +2,7 @@
 @session_start();
 @include_once '../model/conexao.php';
 @include_once '../model/prestador.php';
+@include_once '../model/upload.php';
 
 
 $email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['email']) )? $_POST['email'] : null; 
@@ -13,6 +14,7 @@ $placa = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['placa']) )? $_
 $modelo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['modelo']) )? $_POST['modelo'] : null; 
 $chassi = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['chassi']) )? $_POST['chassi'] : null;
 $tela =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['tela']) ) ? $_POST['tela'] : null; 
+$imagem =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_FILES['arquivo']) ) ? $_FILES['arquivo'] : null; 
 
 
 // $usuarioObj = new Prestador(null, null, null, null, null, null, null, null);
@@ -24,9 +26,13 @@ $tela =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['tela']) ) ? $
 // $cadastro = new Prestador('jhonatha@gmail', '123', 'jhonatha', '20', 'preto', 'PEK6722', 'XJ6', '23334GDGFEFEF',);
 // $cadastro->cadastrar();
 
+// $uploadObj = new Upload(null, null);
+// $list = $uploadObj->exibirTabela();
+
+
 // Barrar o prestador
 if(!Prestador::barrarPrestador()){
-    header('Location: http://localhost/motorapido/?erroNãoLogado');
+    header('Location: http://localhost/updated-integrator-project/?erroNãoLogado');
 }
 
 // Verifica o Cadastro de Prestador
@@ -35,12 +41,12 @@ if($tela == 'cadastroDePrestador'){
     $resultado = $prestadorObj->buscarPorEmail($prestadorObj->getEmail());
     //Se existir o email cadastrado no bd ele não deve ser gravado
     if($resultado){
-        header('Location: http://localhost/motorapido/?erroJaExiste');
+        header('Location: http://localhost/updated-integrator-project/?erroJaExiste');
     } else {
         if($prestadorObj->cadastrar()){
-            header('Location: http://localhost/motorapido/?sucesso');
+            header('Location: http://localhost/updated-integrator-project/?sucesso');
         }else{
-            header('Location: http://localhost/motorapido/?erro');
+            header('Location: http://localhost/updated-integrator-project/?erro');
         }
     }
 }
@@ -51,8 +57,22 @@ if($tela == 'loginDoPrestador'){
     if($prestadorObj->verificarLogin()){
         $_SESSION["prestadorLogado"] = true;
         $_SESSION["prestadorName"] = $prestadorObj->getEmail();
-        header('Location: http://localhost/motorapido/?pagina=3');
+        header('Location: http://localhost/updated-integrator-project/?pagina=3');
     }else {
-        header('Location: http://localhost/motorapido/?erroSenha');
+        header('Location: http://localhost/updated-integrator-project/?erroSenha');
     }
 }
+
+
+if($imagem) {
+    $uploadObj = new Upload($imagem);
+    $uploadObj->cadastrarImagem(); 
+    header('Location: http://localhost/updated-integrator-project/?cadastroTrue');
+     
+
+}
+
+$uploadObj = new Upload($imagem);
+$listaImagem = $uploadObj->exibirTabela();
+
+
