@@ -60,6 +60,21 @@
             </div>
         </section>
 
+        <div class="card mb-3 bg-dark text-white">
+            <div class="card-body">
+                <div class="row pt-1 mb-3">
+                    <div class="col-12">
+                        <h2 class="display-5 fw-bold">Está à procura de uma alternativa para gerar mais renda como entregador?</h2>
+                    </div>
+                </div>
+                <p class="cmln__paragraph">Em vez de oportunidades tradicionais de entrega em horários pouco flexíveis, seja seu próprio chefe com o Moto Rápido Flash e Moto Rápido Direct. Use o app de mobilidade mais baixado e receba para fazer entregas quando&nbsp;quiser.</p>
+                <p class="cmln__paragraph">Você também poderá optar por fazer viagens de Moto Rápido Moto, caso tenha EAR em sua Carteira Nacional de Habilitação e o produto esteja disponível em sua cidade. O Moto Rápido Moto é a modalidade disponível no app da Moto Rápido que permite aos usuários solicitarem viagens por&nbsp;motocicletas.</p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            </div>
+            <img src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_943,h_943/v1644358688/assets/a8/88da85-bbfc-4391-886e-7e0c4b9235de/original/Delivery-header-mobile.png" class="card-img-top" alt="Moto Taxi">
+        </div>
+
+
         <section id="servicos" class="text-center py-5 my-5">
             <div class="row pt-5 mt-3">
                 <div class="col-12">
@@ -97,7 +112,7 @@
             <ul class="pt-4">
                 <li class="fw-bold mt-3">Fazer login</li>
                 <div class="linha-vertical ps-2">
-                    <p class="float-start">Acesse o app de parceiro da Uber e fique online para começar a aceitar solicitações de entrega.</p>
+                    <p class="float-start">Acesse o app de parceiro da Moto Rápido e fique online para começar a aceitar solicitações de entrega.</p>
                 </div>
                 <li class="fw-bold mt-3">Entregue pedidos</li>
                 <div class="linha-vertical ps-2">
@@ -105,10 +120,132 @@
                 </div>
                 <li class="fw-bold mt-3">Ganhe dinheiro</li>
                 <div class="linha-vertical ps-2">
-                    <p class="float-start">Acompanhe seus ganhos e receba os repasses todos os dias ou semanalmente. Se você solicitar uma Uber Conta, os ganhos serão repassados para ela após cada entrega finalizada.</p>
+                    <p class="float-start">Acompanhe seus ganhos e receba os repasses todos os dias ou semanalmente. Se você solicitar uma Moto Rápido Conta, os ganhos serão repassados para ela após cada entrega finalizada.</p>
                 </div>
             </ul>
         </section>
+
+        <section class="box">
+            <div class="row pt-5 mt-3">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Veja o que você precisa para se tornar um entregador parceiro Uber</h2>
+                </div>
+                <p>Informação importante sobre o envio de documentos:</p>
+            </div>
+            <ul class="pt-4">
+                <li style="list-style-type: disc">Não serão aceitos fotocópias ou documentos digitalizados, apenas fotografias de documentos originais.</li>
+                <li style="list-style-type: disc">Garanta que os 4 cantos de todos os documentos estão visíveis.</li>
+                <li style="list-style-type: disc">Se a fotografia não estiver nítida, tenha sombras ou objetos que cubram parte da imagem, o documento não será aceito.</li>
+                <li style="list-style-type: disc">Ser maior de 18 anos para fazer entregas com uma moto ou a pé</li>
+            </ul>
+        </section>
+
+        <section id="faq" class="py-5 mt-2">
+            <div class="row mt-3 mb-5">
+                <div class="col-12">
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                    Carteira de Identidade (RG)
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li style="list-style-type: disc">São aceitos CNH (incluindo Permissão), RG, RNE e RNM.</li>
+                                        <li style="list-style-type: disc">A foto deve estar clara e não ser muito antiga (de criança).</li>
+                                        <li style="list-style-type: disc">Não são aceitos Carteira de Trabalho ou certificado de reservista.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                    CPF
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li style="list-style-type: disc">São aceitos: CNH (incluindo Permissão e CNH digital), RG, Cartão do CPF e Comprovante de situação cadastral</li>
+                                        <li style="list-style-type: disc">Não são aceitos Carteira de Trabalho ou certificado de reservista.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                    Características de uma boa foto de perfil
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li style="list-style-type: disc">Boa iluminação;</li>
+                                        <li style="list-style-type: disc">Tirada de frente, não de lado;</li>
+                                        <li style="list-style-type: disc">O rosto deve ser visível;</li>
+                                        <li style="list-style-type: disc">Certifique-se de que a foto reflita sua aparência atual, não fotos antigas.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div data-baseweb="block" id="animation-wrapper" class="css-PKJb">
+            <section data-baseweb="block" id="" class="css-dDHHCg">
+                <div data-baseweb="block" class="css-hazmlH">
+                    <div data-baseweb="block" class="css-gDdGhK"></div>
+                    <div data-baseweb="block" class="css-fBTLdZ">
+                        <div data-baseweb="block" class="container-inner css-bPNWqZ">
+                            <div data-baseweb="block" class="css-bVFrLX">
+                                <div data-baseweb="block" class="css-emoSzE">
+                                    <div class="css-dkcVmX">
+                                        <div data-baseweb="block" id="animation-wrapper" class="css-PKJb">
+                                            <div class="row pt-1 mb-3">
+                                                <div class="col-12">
+                                                    <h2 class="display-5 fw-bold">O app de parceiro</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-baseweb="block" id="animation-wrapper" class="css-PKJb">
+                                            <div class="css-fFTFHu">
+                                                <div class="css-kqHVrb">
+                                                    <p class="cmln__paragraph">Para fazer entregas, baixe o app de parceiro. Ele é fácil de usar e oferece informações que podem ajudar você a tomar decisões enquanto recebe para fazer&nbsp;entregas.</p>
+                                                    <p class="cmln__paragraph"><a class="cmln__link" href="#">Baixar para Android</a><br><a class="cmln__link" href="#">Baixar para&nbsp;iOS</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-baseweb="block" id="animation-wrapper" class="css-PKJb">
+                                            <div class="css-WiLSj">
+                                                <div class="css-bpZUjh"><a data-tracking-name="deliver_cbf6d7bc-7b2c-4059-bb7f-72106e7c3873_ctaOne.ctaDetails_cta1" href="https://www.uber.com/br/pt-br/drive/driver-app/" target="_self" aria-label="Veja como funciona o app de parceiro" class="css-mOjhT">
+                                                    </a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-baseweb="block" class="bg-dark sm">
+                                    <div data-baseweb="block" id="animation-wrapper" class="css-PKJb">
+                                        <div data-baseweb="aspect-ratio-box" class="css-chMsaN">
+                                            <div class="css-iUrvYQ">
+                                                <div data-baseweb="aspect-ratio-box-body" class="css-eleJdh">
+                                                    <div style="height: 100%; width: 100%;"><img src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_943,h_629/v1536339504/assets/6a/a56168-90eb-42d0-9c15-c0420cd538eb/original/D_Driver_Campaign-Carbon-arabic2x.png" alt="Driver App - Built for drivers, with drivers" role="presentation" aria-hidden="true" class="css-kGIRRZ"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <!-- Footer -->
         <footer class="py-3 mt-5">
