@@ -9,12 +9,13 @@ $email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['email']) )? $_
 $senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['senha']) )? $_POST['senha'] : null; 
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['nome']) )? $_POST['nome'] : null; 
 $idade = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['idade']) )? $_POST['idade'] : null; 
+$telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['telefone']) )? $_POST['telefone'] : null; 
 $cor = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['cor']) )? $_POST['cor'] : null; 
 $placa = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['placa']) )? $_POST['placa'] : null; 
 $modelo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['modelo']) )? $_POST['modelo'] : null; 
 $chassi = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['chassi']) )? $_POST['chassi'] : null;
 $tela =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['tela']) ) ? $_POST['tela'] : null; 
-$imagem =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_FILES['arquivo']) ) ? $_FILES['arquivo'] : null; 
+$imagem =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_FILES['idImagem']) ) ? $_FILES['idImagem'] : null; 
 
 
 // $usuarioObj = new Prestador(null, null, null, null, null, null, null, null);
@@ -32,45 +33,47 @@ $imagem =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_FILES['arquivo'])
 
 // Barrar o prestador
 if(!Prestador::barrarPrestador()){
-    header('Location: http://localhost/updated-integrator-project/?erroNãoLogado');
+    header('Location: http://localhost/projeto-integrador/?erro=nãoLogado');
+}
+
+if($_GET['sair']){
+    session_destroy();
+    header('Location: http://localhost/projeto-integrador/?saiu');
 }
 
 // Verifica o Cadastro de Prestador
 if($tela == 'cadastroDePrestador'){
-    $prestadorObj = new Prestador($email, $senha, $nome, $idade, $cor, $placa, $modelo, $chassi);
+    $prestadorObj = new Prestador($email, $senha, $nome, $idade, $telefone, $cor, $placa, $modelo, $chassi);
     $resultado = $prestadorObj->buscarPorEmail($prestadorObj->getEmail());
     //Se existir o email cadastrado no bd ele não deve ser gravado
     if($resultado){
-        header('Location: http://localhost/updated-integrator-project/?erroJaExiste');
+        header('Location: http://localhost/projeto-integrador/?cadastro=usuarioExiste');
     } else {
+        if($imagem) {
+            $uploadObj = new Upload($imagem);
+            $uploadObj->cadastrarImagem();   
+        }
         if($prestadorObj->cadastrar()){
-            header('Location: http://localhost/updated-integrator-project/?sucesso');
+            header('Location: http://localhost/projeto-integrador/?cadastro=sucesso');
         }else{
-            header('Location: http://localhost/updated-integrator-project/?erro');
+            header('Location: http://localhost/projeto-integrador/?cadastro=erro');
         }
     }
 }
 
 // Verifica o login do Prestador
 if($tela == 'loginDoPrestador'){
-    $prestadorObj = new Prestador($email, $senha, $nome, null, null, null, null, null);
+    $prestadorObj = new Prestador($email, $senha, $nome, null, null, null, null, null, null);
     if($prestadorObj->verificarLogin()){
         $_SESSION["prestadorLogado"] = true;
         $_SESSION["prestadorName"] = $prestadorObj->getEmail();
-        header('Location: http://localhost/updated-integrator-project/?pagina=3');
+        header('Location: http://localhost/projeto-integrador/?pagina=3');
     }else {
-        header('Location: http://localhost/updated-integrator-project/?erroSenha');
+        header('Location: http://localhost/projeto-integrador/?erro=senhaInválida');
     }
 }
 
 
-if($imagem) {
-    $uploadObj = new Upload($imagem);
-    $uploadObj->cadastrarImagem(); 
-    header('Location: http://localhost/updated-integrator-project/?cadastroTrue');
-     
-
-}
 
 $uploadObj = new Upload($imagem);
 $listaImagem = $uploadObj->exibirTabela();

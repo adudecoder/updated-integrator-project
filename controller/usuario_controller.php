@@ -12,21 +12,25 @@ $BuscaUsuario =  ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty( $_POST['termo
 
 
 if(!Usuario::barrarUsuario()){
-    header('Location: http://localhost/motorapido');
+    header('Location: http://localhost/projeto-integrador/?erro=nãoLogado');
 }
 
+if($_GET['sair']){
+    session_destroy();
+    header('Location: http://localhost/projeto-integrador/?saiu');
+}
 
 if($tela == 'cadastroDeUsuario'){
     $usuarioObj = new Usuario($email, $senha);
     $resultado = $usuarioObj->buscarPorEmail( $usuarioObj->getEmail() );
     //Se existir o email cadastrado no bd ele não deve ser gravado
     if( $resultado ){
-        header('Location: http://localhost/motorapido/?erro');
+        header('Location: http://localhost/projeto-integrador/?cadastro=usuarioExiste');
     } else {
         if($usuarioObj->cadastrar()){
-            header('Location: http://localhost/motorapido/?sucesso');
+            header('Location: http://localhost/projeto-integrador/?cadastro=sucesso');
         }else{
-            header('Location: http://localhost/motorapido/?erro3');
+            header('Location: http://localhost/projeto-integrador/?cadastro=erro');
         }
     }
 }
@@ -38,9 +42,9 @@ if( $tela == 'loginDoUsuario' ){
         $_SESSION["usuarioLogado"] = true;
         $_SESSION["usuarioName"] = $usuarioObj->getEmail();
 
-        header('Location: http://localhost/motorapido/?pagina=1');
+        header('Location: http://localhost/projeto-integrador/?pagina=1');
     } else {
-        header('Location: http://localhost/motorapido/?erroSenha');
+        header('Location: http://localhost/projeto-integrador/?erro=senhaInválida');
     }
 }
 
@@ -75,3 +79,14 @@ if(!$tela){
         }
     }
 }
+
+if($_GET['page'] == 0){
+    header('Location: http://localhost/projeto-integrador/?pagina=1&page=1');
+}
+
+$prestadorObj = new Prestador(null, null, null, null, null, null, null, null, null);
+$listaPrestador = $prestadorObj->listarJoin();
+$pages = $prestadorObj->countId();
+
+
+

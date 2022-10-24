@@ -6,7 +6,6 @@ class Upload {
     private $imagem;
 
 
-
     //Construtor
     public function __construct($imagem) {
         $this->setImagem($imagem);
@@ -41,13 +40,21 @@ class Upload {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function listarId() {
+        $pdo = Database::conexao();
+        $stmt = $pdo->prepare("SELECT id FROM arquivos ORDER BY arquivos.id DESC");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function cadastrarImagem(){
             $arquivo = $this->getImagem();
         
             if($arquivo['size'] > 2097152){
-                die("Arquivo muito grande!! max: 2MB");//Mudar
+                header('Location: http://localhost/motorapido/?pagina=3&erroMaxMB');//Mudar
+                die;
             }
-        
+            
             $pastaPrincipal = "../assets/arquivos/";
             $pastaBanco = "assets/arquivos/";
             $nomeDoArquivo = $arquivo['name'];
@@ -55,7 +62,8 @@ class Upload {
             $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
             
             if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"){
-                die("Tipo de arquivo não aceito");//Mudar
+                header('Location: http://localhost/motorapido/?pagina=3&erroTipo');//Mudar
+                die;
             }
         
             $path = $pastaPrincipal . $novoNomeDoArquivo . "." . $extensao;

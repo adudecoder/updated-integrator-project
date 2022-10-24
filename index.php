@@ -17,11 +17,19 @@ if (!isset($_SESSION["prestadorName"])) {
     $_SESSION["prestadorName"] = false;
 }
 
+if (!isset($_GET["sair"])) {
+    $_GET["sair"] = false;
+}
+if (!isset($_GET["page"])) {
+    $_GET["page"] = $_GET['page'];
+}
+
 //localhost/diogo/uec?pagina=3
 var_dump($_SESSION["usuarioLogado"]);
 var_dump($_SESSION["usuarioName"]);
 var_dump($_SESSION["prestadorLogado"]);
 var_dump($_SESSION["prestadorName"]);
+
 
 //Operador ternario
 $pagina = ($_SERVER["REQUEST_METHOD"] == "GET" && !empty( $_GET['pagina']) ) ? $_GET['pagina'] : 999 ;
@@ -33,6 +41,8 @@ if($pagina === '1'){
     // Usuario Logado
     include_once 'model/conexao.php';
     include_once 'model/usuario.php';
+    include_once 'model/upload.php';
+    include_once 'model/prestador.php';
     include_once 'controller/usuario_controller.php';
     include_once 'view/view_usuarioLogado.php';
     
